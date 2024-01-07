@@ -1,6 +1,8 @@
 # Very simple application for notes
 Created for polish professional examination named INF.04
 
+![Showcase](showcase.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
