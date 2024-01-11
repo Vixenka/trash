@@ -16,5 +16,6 @@ with open('binarne.txt') as file:
             j = i * 4
             if bcd_to_int(line[j:j+4]) is None:
                 count += 1
+                break
 
 print(count)

@@ -24,10 +24,20 @@ def gcd(a, b):
     return a
 
 # Exercise 3
-def sum_of_divisors(_):
-    # This will be always zero, because any positive number has the same number of positive divisors as negative
-    # divisors.
-    return 0
+def sum_of_positive_divisors(n):
+    if n < 1:
+        return None
+
+    sum = 0
+    i = 1
+    while i * i <= n:
+        if n % i == 0:
+            sum += i
+            if i * i != n:
+                sum += n // i
+        i += 1
+    
+    return sum
 
 # Exercise 4
 def count_number_of_prime_factors(n):
@@ -50,14 +60,12 @@ def count_number_of_prime_factors(n):
         
 # Exercise 5
 def is_palindrome(word):
-    # I use try-except, because this exercise disallow use built-in functions like len() or more than one element
-    # indexing and Python's str does not require things like null character. But I can use control instructions like:
-    # if, while, for, etc. then I think try-except is allowed too.
-    try:
-        i = 0
-        while True:
-            if word[i] != word[-i - 1]:
-                return False
-            i += 1
-    except IndexError:
-        return True
+    len = 0
+    for _ in word:
+        len += 1
+    
+    for i in range(len // 2):
+        if word[i] != word[-1 - i]:
+            return False
+        
+    return True

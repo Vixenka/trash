@@ -1,10 +1,8 @@
 count = 0
 with open('binarne.txt') as file:
     while line := file.readline().strip():
-        if len(line) / 8 != 1:
-            continue
-        
-        if line[:4] == line[4:]:
+        half_len = len(line) // 2
+        if line[:half_len] == line[half_len:]:
             count += 1
 
 print(count)
